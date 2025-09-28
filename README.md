@@ -1,70 +1,136 @@
-# Getting Started with Create React App
+# SATYAM — Smart AI for Tribal Yojana & Atlas Monitoring
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A role-based web platform built with React to support SIH-2025 Problem Statement 25108. SATYAM streamlines scheme monitoring, geospatial visualization, and document management for tribal development stakeholders (Admin, Officer, FRD, PDA, NGO).
 
-## Available Scripts
+- Live Demo: https://satyam-sih.netlify.app/
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- Overview
+- Features
+- Tech Stack
+- Project Structure
+- Local Development
+- Scripts
+- Routing & Roles
+- Demo Accounts
+- Maps & Charts
+- Deployment
+- License
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+SATYAM centralizes the monitoring of tribal welfare schemes with dashboards, DSS views, geospatial maps, role-based routes, and secure document upload. It is a SPA leveraging React Router v6 for protected routes and context-based authentication.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Role-based access control (Admin, Officer, FRD, PDA, NGO)
+- Dashboards per role: Admin, Officer, FRD, PDA, NGO
+- DSS (Decision Support System) views
+- Interactive maps using Leaflet and React-Leaflet
+- Charts and analytics (Chart.js via react-chartjs-2)
+- Document upload interface
+- User management (admin)
+- Profile view
 
-### `npm run build`
+## Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React 19 with React Router v6
+- Context API for auth (`src/Context/AuthContext.jsx`)
+- Leaflet + React-Leaflet for maps
+- Chart.js + react-chartjs-2 for charts
+- Create React App tooling (`react-scripts`)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Key folders and files:
 
-### `npm run eject`
+```
+src/
+  App.js                 # Router and protected routes
+  Context/
+    AuthContext.jsx      # Auth state and demo users
+  Pages/
+    Layout/              # Role-specific layouts (Admin/Officer/FRD/PDA/NGO)
+    Login.jsx            # Login page
+    MainDashboard.jsx    # Admin landing dashboard
+    DSS.jsx              # Decision Support System
+    Maps.jsx             # Map view (Leaflet)
+    DocumentUpload.jsx   # Upload UI
+    Users.jsx            # Admin user management
+    ...other role dashboards
+  Components/
+    MapView.jsx          # Leaflet map component
+    StateDistributionChart.jsx
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Assets and static images live under `src/assets/`. A production build is output to `build/`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Local Development
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Prerequisites: Node.js 18+ and npm.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install
+npm start
+```
 
-## Learn More
+App runs at `http://localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Scripts
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `npm start` — Start the dev server
+- `npm run build` — Production build to `build/`
+- `npm test` — Run tests (Jest/RTL)
 
-### Code Splitting
+## Routing & Roles
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Routing is defined in `src/App.js` using `createBrowserRouter`. A lightweight `ProtectedRoute` checks the authenticated user and role via `useAuth()`.
 
-### Analyzing the Bundle Size
+Example:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```jsx
+// Inside router config
+{ path: "/admin", element: <ProtectedRoute roles={["admin"]} element={adminWrap(<MainDashboard />)} /> }
+{ path: "/officer", element: <ProtectedRoute roles={["officer"]} element={officerWrap(<OfficerDashboard />)} /> }
+{ path: "/frd", element: <ProtectedRoute roles={["frd"]} element={frdWrap(<FRDDashboard />)} /> }
+{ path: "/pda", element: <ProtectedRoute roles={["pda"]} element={pdaWrap(<PDADashboard />)} /> }
+{ path: "/ngo", element: <ProtectedRoute roles={["ngo"]} element={ngoWrap(<NGODashboard />)} /> }
+```
 
-### Making a Progressive Web App
+Auth is provided by `AuthProvider` in `src/index.js`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Demo Accounts
 
-### Advanced Configuration
+For demo purposes, static users are defined in `src/Context/AuthContext.jsx`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```js
+{ username: "admin",   password: "admin123", role: "admin" }
+{ username: "officer", password: "field123", role: "officer" }
+{ username: "frd01",   password: "frd123",   role: "frd" }
+{ username: "pda01",   password: "pda123",   role: "pda" }
+{ username: "ngo01",   password: "ngo123",   role: "ngo" }
+```
 
-### Deployment
+Use the appropriate credentials to explore role-specific routes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Maps & Charts
 
-### `npm run build` fails to minify
+- Maps: `leaflet` + `react-leaflet` power `Maps.jsx` and `Components/MapView.jsx`.
+- Charts: `chart.js` + `react-chartjs-2` for `StateDistributionChart.jsx` and dashboard visuals.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Deployment
+
+The app can be deployed statically. A production build is created with:
+
+```bash
+npm run build
+```
+
+The build output under `build/` can be hosted on any static host (e.g., Netlify). Current live deployment:
+
+- Live Demo: https://satyam-sih.netlify.app/
+
+## License
+
+This project is intended for SIH-2025 Problem Statement 25108. Licensing can be updated as per organization requirements.
