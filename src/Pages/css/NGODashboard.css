@@ -1,0 +1,36 @@
+/* NGO Dashboard Styles (scoped) */
+.ngo-page { padding: var(--space-8); max-width: 1400px; margin: 0 auto; }
+.ngo-page .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-8); }
+.ngo-page .stat-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-base); display: flex; align-items: center; gap: var(--space-4); }
+.ngo-page .stat-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(90,110,85,0.08); }
+.ngo-page .stat-value { font-size: var(--font-size-3xl); font-weight: 700; color: var(--color-text); }
+.ngo-page .stat-label { color: var(--color-text-secondary); font-weight: 500; }
+
+.ngo-page .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-base); margin-bottom: var(--space-6); }
+.ngo-page .card-header { padding: var(--space-6); border-bottom: 1px solid var(--color-border); }
+.ngo-page .card-title { display: flex; align-items: center; justify-content: space-between; font-weight: 600; color: var(--color-text); }
+.ngo-page .card-content { padding: var(--space-6); }
+
+.ngo-page .filters-row { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+.ngo-page .input-wrapper { flex: 1; min-width: 240px; }
+.ngo-page .input-field { width: 100%; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: var(--radius-base); background: var(--color-background); }
+.ngo-page .select-wrapper { width: 200px; }
+.ngo-page .select-field { width: 100%; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: var(--radius-base); background: var(--color-background); }
+.ngo-page .chk { display: flex; align-items: center; gap: 6px; }
+
+.ngo-page .table-wrapper { overflow-x: auto; }
+.ngo-page .table { width: 100%; border-collapse: collapse; font-size: var(--font-size-sm); }
+.ngo-page .table th, .ngo-page .table td { padding: var(--space-3); text-align: left; }
+.ngo-page .table thead tr { border-bottom: 1px solid var(--color-border); }
+.ngo-page .table tbody tr { border-bottom: 1px solid var(--color-border-light); }
+.ngo-page .btn { padding: 8px 12px; border: 1px solid var(--color-border); border-radius: var(--radius-base); background: transparent; cursor: pointer; }
+.ngo-page .btn-sm { padding: 6px 10px; font-size: 12px; }
+.ngo-page .btn-outline { color: #3D403A; border-color: #a8c4b3; }
+.ngo-page .badge { display: inline-block; padding: 2px 6px; border-radius: 6px; border: 1px solid var(--color-border); font-size: 12px; }
+.ngo-page .status-approved { color: var(--color-success); background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.2); }
+.ngo-page .status-pending { color: var(--color-warning); background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.2); }
+.ngo-page .status-rejected { color: var(--color-error); background: rgba(229,115,115,0.1); border-color: rgba(229,115,115,0.2); }
+.ngo-page .type-ifr { color: #4F46E5; background: rgba(79,70,229,0.1); border-color: rgba(79,70,229,0.2); }
+.ngo-page .type-cfr { color: #7C3AED; background: rgba(124,58,237,0.1); border-color: rgba(124,58,237,0.2); }
+.ngo-page .type-cr { color: #DB2777; background: rgba(219,39,119,0.1); border-color: rgba(219,39,119,0.2); }
+

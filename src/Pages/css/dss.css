@@ -1,0 +1,229 @@
+/* --- Page Foundation --- */
+.page {
+  background-color: #FAF8F5; /* Soft cream background */
+  padding: 32px;
+  font-family: 'Poppins', sans-serif; /* Ensure consistent font */
+}
+
+.page-header h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #5A6E55; /* Earthy Green for the main title */
+  margin-bottom: 24px;
+}
+
+.dss-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* --- Recommendation Card Redesign --- */
+.recommendations-section {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.recommendations-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #3D403A;
+  margin-bottom: 16px;
+}
+
+.recommendation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.recommendation-card {
+  background-color: #FFFFFF;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #EAEAEA;
+  border-left-width: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.recommendation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.recommendation-card.priority-high { border-left-color: #E57373; }
+.recommendation-card.priority-medium { border-left-color: #FFC107; }
+.recommendation-card.priority-low { border-left-color: #6C757D; }
+
+.rec-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.rec-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #3D403A;
+}
+
+.priority-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.priority-badge.high { background-color: #FFEBEE; color: #E57373; }
+.priority-badge.medium { background-color: #FFF8E1; color: #FFA000; }
+
+.score {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #5A6E55;
+}
+
+.recommendation-card p {
+  color: #6c757d;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.rec-schemes {
+  margin: 16px 0;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.scheme-tag {
+  background-color: #E8F5E9;
+  color: #4CAF50;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* --- Scheme Matcher Redesign --- */
+.scheme-matcher {
+  background: #FFFFFF;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #EAEAEA;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  height: auto;
+}
+
+.scheme-matcher h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #3D403A;
+  margin-bottom: 16px;
+}
+
+.matcher-form {
+  margin-bottom: 24px;
+}
+
+/* --- Available Schemes Section --- */
+.matched-schemes.active {
+  display: block;
+  border-top: 1px solid #EAEAEA;
+  padding-top: 24px;
+}
+
+.matched-schemes h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #A98A78;
+  margin-bottom: 16px;
+}
+
+.scheme-results {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.scheme-result-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: #FAF8F5;
+  border-radius: 8px;
+  border: 1px solid #EAEAEA;
+  border-left: 4px solid #5A6E55;
+}
+
+.scheme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background-color: #E8F5E9;
+  border-radius: 50%;
+  color: #5A6E55;
+  font-size: 20px;
+}
+
+.scheme-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.scheme-result-item h5 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #3D403A;
+}
+
+.scheme-result-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6c757d;
+  line-height: 1.5;
+}
+
+/* --- Generic & Reusable Component Styles --- */
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+.btn--primary {
+  background-color: #5A6E55;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+.btn--primary:hover {
+  background-color: #495A44;
+}
+.btn--sm {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+}
+

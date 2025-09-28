@@ -1,0 +1,7 @@
+.user{
+    padding: var(--space-6);
+    
+}
+.user-card.hover{
+    transform: scale(1.15);
+}
